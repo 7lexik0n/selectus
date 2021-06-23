@@ -25,7 +25,7 @@ Customized select element
 > selectus(*className* [, *settings*]);
 
 ## Settings
-Selectus are using slide animation to show/hide select menu. You can disable it, using `animated` property:
+Selectus is using slide animation to show/hide select menu. You can disable it, using `animated` property:
 ```javascript
   selectus('#defaultSelect', { animated: false });
 ```
