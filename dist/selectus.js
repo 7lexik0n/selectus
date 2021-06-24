@@ -32,9 +32,9 @@ class Selectus {
     if (!this.animated) {
       this.optionsBox.classList.toggle(`${this.optionsBoxName}_opened`);
     } else {
-      this.optionsBox.classList.contains(`${this.optionsBoxName}_opened`) ?
-        this.toggleMenu(this.toggleSpeed, "close") :
-        this.toggleMenu(this.toggleSpeed, "open");
+      this.optionsBox.classList.contains(`${this.optionsBoxName}_opened`)
+        ? this.toggleMenu(this.toggleSpeed, "close")
+        : this.toggleMenu(this.toggleSpeed, "open");
     }
   };
 
@@ -56,7 +56,7 @@ class Selectus {
 
     if (timeFraction >= 1) {
       timeFraction = 1;
-      
+
       if (type === "open") {
         this.optionsBox.classList.add(`${this.optionsBoxName}_opened`);
 
@@ -186,9 +186,11 @@ class Selectus {
 }
 
 window.selectus = (className, { animated = true } = {}) => {
-  const defaultSelect = document.querySelector(className);
+  const selects = [...document.querySelectorAll(className)];
 
-  if (defaultSelect) {
-    new Selectus(defaultSelect, { animated });
+  if (selects.length) {
+    selects.forEach(
+      (defaultSelect) => new Selectus(defaultSelect, { animated })
+    );
   }
 };
